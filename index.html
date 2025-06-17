@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>PIANO</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: steelblue;
+			margin: 0;
+			min-height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.piano {
+			display: flex;
+		}
+
+		.key {
+			height: calc(var(--width)*3);
+			width: var(--width);
+		}
+
+		.white {
+			--width: 100px;
+			background-color: white;
+			border: 1px solid #333;
+			display: flex;
+			justify-content: center;
+			align-items: end;
+			font-weight: 400;
+			color: red;
+		}
+
+		.white.active {
+			background-color: #CCC;
+		}
+
+		.black {
+			--width: 60px;
+			background-color: black;
+			margin-left: calc(var(--width) / -2);
+			margin-right: calc(var(--width) / -2);
+			display: flex;
+			justify-content: center;
+			align-items: end;
+			font-weight: 400;
+			color: yellow;
+			z-index: 2;
+		}
+
+		.black.active {
+			background-color: #333;
+		}
+
+		#texto {
+			display: block;
+			color: black;
+			font-size: 0.7em;
+			margin-bottom: 2em;
+			background-color: aliceblue;
+			padding: 3px;
+		}
+
+		#texto p,
+		#texto ul {
+			margin: 2px 0;
+		}
+
+		summary {
+			text-align: left;
+			background-color: steelblue;
+			color: aliceblue;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<details id="texto">
+			<summary><b>Instrucciones:</b></summary>
+			<p>La función <code>playNote(tecla)</code> deberá:</p>
+			<ul type="circle">
+				<li>Crear el nombre del archivo de audio (con su ruta) al recibir el valor de una tecla.</li>
+				<li>Crear una constante de tipo Audio que cargue el audio con este valor</li>
+				<li>Ejecutar el archivo de audio</li>
+			</ul>
+			<p>Dado que no tengo sonido para bemoles, las teclas negras no suenan y la consola muestra un error.</p>
+		</details>
+		<div class="piano">
+			<div id="c" onclick="playNote(this.id)" class="key white">C</div>
+			<div id="db" onclick="playNote(this.id)" class="key black">Db</div>
+			<div id="d" onclick="playNote(this.id)" class="key white">D</div>
+			<div id="eb" onclick="playNote(this.id)" class="key black">Eb</div>
+			<div id="e" onclick="playNote(this.id)" class="key white">E</div>
+			<div id="f" onclick="playNote(this.id)" class="key white">F</div>
+			<div id="gb" onclick="playNote(this.id)" class="key black">Gb</div>
+			<div id="g" onclick="playNote(this.id)" class="key white">G</div>
+			<div id="ab" onclick="playNote(this.id)" class="key black">Ab</div>
+			<div id="a" onclick="playNote(this.id)" class="key white">A</div>
+			<div id="bb" onclick="playNote(this.id)" class="key black">Bb</div>
+			<div id="b" onclick="playNote(this.id)" class="key white">B</div>
+		</div>
+
+
+	</div>
+
+	<script src="./js/app.js"></script>
+</body>
+
+
+</html>
